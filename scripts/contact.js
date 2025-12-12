@@ -2,12 +2,12 @@
 
 // hint: you can change the style of an element by modifying the value of that element's .style.fontSize, or by updating its .classList.
 
-const contactPage = document.getElementById('contact-page')
+const contactPage = document.getElementById('contact-page');
 
-document.querySelector('form').addEventListener('submit',submitForm)
+document.querySelector('form').addEventListener('submit',submitForm);
 
 function submitForm(event) {
-  event.preventDefault()
-  contactPage.innerHTML = '<p>Thank you for your message</p><a class="fake-button large-text" href="../index.html">Home</a>'
-  contactPage.style.fontSize = '24px'
+  event.preventDefault();
+  contactPage.innerHTML = '<p>Thank you for your message</p><a class="fake-button large-text" href="../index.html">Home</a>';
+  contactPage.style.fontSize = '24px';
 }

@@ -3,9 +3,8 @@
 // Do any of these variables need to be initialized when the page is loaded? 
 // When do they need to be reset or updated?
 
-let dailyRate = 35
-let numOfDays = 0
-let fullDay = true
+let dailyRate = 35;
+let numOfDays = 0;
 
 const dayList = [
   document.getElementById('monday'),
@@ -13,39 +12,39 @@ const dayList = [
   document.getElementById('wednesday'),
   document.getElementById('thursday'),
   document.getElementById('friday'),
-]
+];
 
-const fullButton = document.getElementById('full')
-const halfButton = document.getElementById('half')
+const fullButton = document.getElementById('full');
+const halfButton = document.getElementById('half');
 
 /********* colour change days of week *********/
 // when the day buttons are clicked, we will apply the "clicked" class to that element, and update any other relevant variables. Then, we can recalculate the total cost.
 // added challenge: don't update the dayCounter if the same day is clicked more than once. hint: .classList.contains() might be helpful here!
 
 dayList.forEach((day) => {
-  day.addEventListener('click', () => dayButton(day))
-})
+  day.addEventListener('click', () => dayButton(day));
+});
 
 function dayButton(day) {
   if (day.classList.contains('clicked') === false ) {
-    day.classList.add('clicked')
-    numOfDays++
+    day.classList.add('clicked');
+    numOfDays++;
   }
-  recalculate()
+  recalculate();
 }
 
 
 /********* clear days *********/
 // when the clear-button is clicked, the "clicked" class is removed from all days, any other relevant variables are reset, and the calculated cost is set to 0.
 
-document.getElementById('clear-button').addEventListener('click', clearDays)
+document.getElementById('clear-button').addEventListener('click', clearDays);
 
 function clearDays() {
   dayList.forEach((day) => {
-    day.classList.remove('clicked')
-    numOfDays = 0
-  })
-  recalculate()
+    day.classList.remove('clicked');
+    numOfDays = 0;
+  });
+  recalculate();
 }
 
 
@@ -59,14 +58,14 @@ function clearDays() {
 
 // when the full-day button is clicked, the daily rate is set back to $35, the clicked class is added to "full" and removed from "half", and the total cost is recalculated.
 
-fullButton.addEventListener('click', () => changeRate(fullButton,halfButton))
-halfButton.addEventListener('click', () => changeRate(halfButton,fullButton))
+fullButton.addEventListener('click', () => changeRate(fullButton,halfButton));
+halfButton.addEventListener('click', () => changeRate(halfButton,fullButton));
 
 function changeRate(primaryButton, secondaryButton) {
-  primaryButton.classList.add('clicked')
-  secondaryButton.classList.remove('clicked')
-  dailyRate = (dailyRate === 35) ? 20 : 35
-  recalculate()
+  primaryButton.classList.add('clicked');
+  secondaryButton.classList.remove('clicked');
+  dailyRate = (dailyRate === 35) ? 20 : 35;
+  recalculate();
 }
 
 
@@ -75,7 +74,7 @@ function changeRate(primaryButton, secondaryButton) {
 // when a calculation is needed, set the innerHTML of the calculated-cost element to the appropriate value
 
 function recalculate() {
-  document.getElementById('calculated-cost').textContent = numOfDays * dailyRate
+  document.getElementById('calculated-cost').textContent = numOfDays * dailyRate;
 }
 
 
